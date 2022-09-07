@@ -44,7 +44,7 @@ Para este ejercicio necesesitamos lo siguiente
 *Nota: el programa que se utilizo fue el anterior código*
 
 
-Loss siguientes comando se utilizan para poder ver la base de datos y tablas, así como también hacer uso de ellla.
+Los siguientes comandos se utilizan para poder ver la base de datos y tablas, así como también hacer uso de ellla.
 
 El siguiente comando consiste en mostrar la lista de bases de datos.
 
@@ -79,12 +79,12 @@ Crearemos un flow para mostarar los sensores del detector de COVID.
 
 2. Agregar el código del sensor MLX90614 al programa del micro controlador
 
--Agregar biblioteca
--Agregar objeto 
--Iniciar el sensor en void setup.
--Modificar el inicio del sensor para que tome los pines indicados manualmente .
--Agregar una nueva secuencia de tiempo no bloqueante.
--Modificar el envío por JSON.
+   -Agregar biblioteca
+   -Agregar objeto 
+   -Iniciar el sensor en void setup.
+   -Modificar el inicio del sensor para que tome los pines indicados manualmente .
+   -Agregar una nueva secuencia de tiempo no bloqueante.
+   -Modificar el envío por JSON.
 
 
 
@@ -102,20 +102,34 @@ Nodo Function Detector HR
 
 
  if (msg.payload.hrv == 1) {
-    msg.payload = msg.payload.hr;
-    return msg;
-    }
+    
+	
+	msg.payload = msg.payload.hr;
+    
+	
+	return msg;
+    
+	
+	}
 
 Nodo Funcition Detector SPO2
 
 
  if (msg.payload.spo2v == 1) {
-    msg.payload = msg.payload.spo2;
-    return msg;
+    
+	
+	msg.payload = msg.payload.spo2;
+    
+	
+	return msg;
  }
 
 
-Nodo Funcition msg.payload = msg.payload.tir;
+Nodo Funcition 
+
+msg.payload = msg.payload.tir;
+
+
 return msg;
 
 --------------------------------------------------
@@ -129,19 +143,43 @@ Nodo function Protodiagnostico
 
 
  if ((global.get ("temp") > 35.5 && global.get ("temp") < 36.5) && (global.get ("hr") > 60 && global.get ("hr") <90 ) && (global.get ("spo2") > 90))
+
+
  {
+
+
     msg.payload = "Signos vitales normales";
+
+
     global.set ("protodiagnostico", msg.payload);
+
+
     msg.to = global.get ("correo");
+
+
     msg.topic = "Proto diagnostico de covid - Ejercicio de CódigoIoT";
+
+
     return msg;
  }
+
+
  else {
+
+	
     msg.payload = "Signos vitales alterados, se recomienda ir con un médico";
+
+
     global.set ("protodiagnostico", msg.payload);
     msg.to = global.get ("correo");
+
+
     msg.topic = "Proto diagnostico de covid - Ejercicio de CódigoIoT";
+
+
     return msg;
+
+
  }
 
 
@@ -174,7 +212,7 @@ Ejemplo de como quedaria si fuera una instrucción estática
 Nodo Function Query
 
 
- msg.topic = "INSERT INTO registro (`nombre`,`correo`,`temp`,`bpm`,`sp02`,`protodiagnostico`) VALUES ('Hugo Vargas','hvargas@factor.mx', 37.2,102,95,'Protodiagnostico');";
+ msg.topic = "INSERT INTO registro (`nombre`,`correo`,`temp`,`bpm`,`sp02`,`protodiagnostico`) VALUES ('Hugo Vargas','victor4salvador@outlook.es', 37.2,102,95,'Protodiagnostico');";
  return msg;
 
 
