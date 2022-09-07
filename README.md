@@ -135,10 +135,10 @@ Nodo Funcition Detector SPO2
 
 Nodo Funcition 
 
-msg.payload = msg.payload.tir;
+    msg.payload = msg.payload.tir;
 
 
-return msg;
+    return msg;
 
 --------------------------------------------------
 Detector de sintomas COVID
@@ -150,10 +150,10 @@ Se realiza un boton diagnóstico.
 Nodo function Protodiagnostico
 
 
- if ((global.get ("temp") > 35.5 && global.get ("temp") < 36.5) && (global.get ("hr") > 60 && global.get ("hr") <90 ) && (global.get ("spo2") > 90))
+   if ((global.get ("temp") > 35.5 && global.get ("temp") < 36.5) && (global.get ("hr") > 60 && global.get ("hr") <90 ) && (global.get ("spo2") > 90))
 
 
- {
+   {
 
 
     msg.payload = "Signos vitales normales";
@@ -169,10 +169,10 @@ Nodo function Protodiagnostico
 
 
     return msg;
- }
+   }
 
 
- else {
+   else {
 
 	
     msg.payload = "Signos vitales alterados, se recomienda ir con un médico";
@@ -188,7 +188,7 @@ Nodo function Protodiagnostico
     return msg;
 
 
- }
+    }
 
 
 
