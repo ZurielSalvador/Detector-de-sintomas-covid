@@ -80,10 +80,22 @@ Crearemos un flow para mostarar los sensores del detector de COVID.
 2. Agregar el código del sensor MLX90614 al programa del micro controlador
 
    -Agregar biblioteca
+
+
    -Agregar objeto 
+
+
+   
+   
    -Iniciar el sensor en void setup.
+   
+   
    -Modificar el inicio del sensor para que tome los pines indicados manualmente .
+   
+   
    -Agregar una nueva secuencia de tiempo no bloqueante.
+   
+   
    -Modificar el envío por JSON.
 
 
@@ -101,9 +113,7 @@ Abrir el firwall de Ubuntu para Mosquitto
 Nodo Function Detector HR
 
 
- if (msg.payload.hrv == 1) {
-    
-	
+    if (msg.payload.hrv == 1) {
 	msg.payload = msg.payload.hr;
     
 	
@@ -115,14 +125,12 @@ Nodo Function Detector HR
 Nodo Funcition Detector SPO2
 
 
- if (msg.payload.spo2v == 1) {
-    
-	
+    if (msg.payload.spo2v == 1) {
 	msg.payload = msg.payload.spo2;
     
 	
 	return msg;
- }
+    }
 
 
 Nodo Funcition 
